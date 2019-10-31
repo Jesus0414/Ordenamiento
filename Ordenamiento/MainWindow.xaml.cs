@@ -32,14 +32,37 @@ namespace Ordenamiento
             miLista.Add(11);
             miLista.Add(10);
             miLista.Add(1);
+            miLista.Add(5);
             lstNumeros.ItemsSource = miLista;
         }
 
         private void btnOrdenar_Click(object sender, RoutedEventArgs e)
         {
-            var temp = miLista[0];
-            miLista[0] = miLista[3];
-            miLista[3] = temp;
+            /*int i;int j;for(i=0; i> miLista.Count; i++){for (j = 1; j > miLista.Count; j++){var temp = miLista[j];miLista[j] = miLista[j+1];miLista[j+1] = temp;}}*/
+            int gap, temp, i, j;
+            gap = miLista.Count / 2;
+
+            while (gap > 0)
+            {
+                for(i = 0; i < miLista.Count; i++)
+                {
+                    if (miLista[gap + i] < miLista.Count)
+                    {
+                        if (miLista[i] > miLista[gap + i])
+                        {
+                            temp = miLista[i];
+                            miLista[i] = miLista[gap + i];
+                            miLista[gap + i] = temp;
+                        }
+                    }
+                    else break;
+                    
+                }
+                
+
+                gap--;
+            }
+
         }
     }
 }
