@@ -22,6 +22,7 @@ namespace Ordenamiento
     public partial class MainWindow : Window
     {
         ObservableCollection<int> miLista = new ObservableCollection<int>();
+        ObservableCollection<Alumno> alumnos = new ObservableCollection<Alumno>();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,24 +34,34 @@ namespace Ordenamiento
             miLista.Add(10);
             miLista.Add(1);
             miLista.Add(5);
-            lstNumeros.ItemsSource = miLista;
+
+            alumnos.Add(new Alumno("José", 9.1f, 2));
+            alumnos.Add(new Alumno("Jesús", 9.7f, 1));
+            alumnos.Add(new Alumno("Juan", 9.5f, 1));
+            alumnos.Add(new Alumno("María", 9.9f, 2));
+            alumnos.Add(new Alumno("Pedro", 9.8f, 3));
+            alumnos.Add(new Alumno("Joaquina", 7.9f, 2));
+            alumnos.Add(new Alumno("Ana", 8.1f, 3));
+
+            lstNumeros.ItemsSource = alumnos;
+            //lstNumeros.ItemsSource = miLista;
         }
 
         private void btnOrdenar_Click(object sender, RoutedEventArgs e)
         {
             /*int i;int j;for(i=0; i> miLista.Count; i++){for (j = 1; j > miLista.Count; j++){var temp = miLista[j];miLista[j] = miLista[j+1];miLista[j+1] = temp;}}*/
-            int gap, temp, i;
-            gap = miLista.Count / 2;
+            int gap, i;
+            gap = alumnos.Count / 2;
 
             while (gap > 0)
             {
-                for(i = 0; i < miLista.Count; i++)
+                for(i = 0; i < alumnos.Count; i++)
                 {
-                    if (gap + i < miLista.Count && miLista[i] > miLista[gap + i])
+                    if (gap + i < alumnos.Count && alumnos[i].Promedio > alumnos[gap + i].Promedio)
                     {
-                        temp = miLista[i];
-                        miLista[i] = miLista[gap + i];
-                        miLista[gap + i] = temp;
+                        var temp = alumnos[i];
+                        alumnos[i] = alumnos[gap + i];
+                        alumnos[gap + i]= temp;
                     }
 
                 }

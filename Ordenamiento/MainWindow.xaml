@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ordenamiento"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="464" Width="392">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE86E6E" Offset="0"/>
+            <GradientStop Color="#FFF0E07F" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        <ListBox x:Name="lstNumeros" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="177" Margin="25,10,0,0"/>
+        <ListBox x:Name="lstNumeros" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="177" Margin="25,10,0,0">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.6"/>
+            </ListBox.Background>
+        </ListBox>
         <Button x:Name="btnOrdenar" Content="OrdenarShell" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="227,34,0,0" Click="btnOrdenar_Click" />
         <Button x:Name="btnBubble" Content="OrdenarBubble" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="227,69,0,0" Click="btnBubble_Click"/>
 
