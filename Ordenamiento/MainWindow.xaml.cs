@@ -76,19 +76,58 @@ namespace Ordenamiento
             do
             {
                 intercambio = false;
-                for (int i = 0; i < miLista.Count - 1; i++)
+                for (int i = 0; i < alumnos.Count - 1; i++)
                 {
-                    if (miLista[i] > miLista[i + 1])
+                    if (alumnos[i].Promedio > alumnos[i + 1].Promedio)
                     {
-                        int temp = miLista[i];
-                        miLista[i] = miLista[i + 1];
-                        miLista[i + 1] = temp;
+                        var temp = alumnos[i];
+                        alumnos[i] = alumnos[i + 1];
+                        alumnos[i + 1] = temp;
                         intercambio = true;
                     }
                 }
             /*int i, j, temp;for (i = 0; i < miLista.Count; i++){for (j = 0; j < i + 1; j++){if(j + 1 < miLista.Count && miLista[j] > miLista[j + 1]){temp = miLista[j];miLista[j] = miLista[j + 1];miLista[j + 1] = temp;}}}intercambio = true;break;*/
             } while (intercambio);
            
+        }
+
+        private void btnShellFaltas_Click(object sender, RoutedEventArgs e)
+        {
+            int gap, i;
+            gap = alumnos.Count / 2;
+
+            while (gap > 0)
+            {
+                for (i = 0; i < alumnos.Count; i++)
+                {
+                    if (gap + i < alumnos.Count && alumnos[i].Faltas > alumnos[gap + i].Faltas)
+                    {
+                        var temp = alumnos[i];
+                        alumnos[i] = alumnos[gap + i];
+                        alumnos[gap + i] = temp;
+                    }
+                }
+                gap--;
+            }
+        }
+
+        private void btnBubbleFaltas_Click(object sender, RoutedEventArgs e)
+        {
+            bool intercambio = false;
+            do
+            {
+                intercambio = false;
+                for (int i = 0; i < alumnos.Count - 1; i++)
+                {
+                    if (alumnos[i].Faltas > alumnos[i + 1].Faltas)
+                    {
+                        var temp = alumnos[i];
+                        alumnos[i] = alumnos[i + 1];
+                        alumnos[i + 1] = temp;
+                        intercambio = true;
+                    }
+                }
+            } while (intercambio);
         }
     }
 }

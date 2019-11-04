@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ordenamiento"
         mc:Ignorable="d"
-        Title="MainWindow" Height="464" Width="392">
+        Title="MainWindow" Height="464" Width="628.833">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFE86E6E" Offset="0"/>
@@ -13,13 +13,40 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <ListBox x:Name="lstNumeros" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="177" Margin="25,10,0,0">
-            <ListBox.Background>
+        <ListView x:Name="lstNumeros" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="412" Margin="25,10,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Nombre}" Header="Nombre" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Promedio}" Header="Promedio" Width="120"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Faltas}" Header="Faltas" Width="120"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0.6"/>
-            </ListBox.Background>
-        </ListBox>
-        <Button x:Name="btnOrdenar" Content="OrdenarShell" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="227,34,0,0" Click="btnOrdenar_Click" />
-        <Button x:Name="btnBubble" Content="OrdenarBubble" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="227,69,0,0" Click="btnBubble_Click"/>
+            </ListView.Background>
+        </ListView>
+        <Button x:Name="btnOrdenar" Content="OrdenarShell" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="458,49,0,0" Click="btnOrdenar_Click" >
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFF7A8" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnBubble" Content="OrdenarBubble" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="458,84,0,0" Click="btnBubble_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8F7FF" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnShellFaltas" Content="OrdenarShell" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="458,164,0,0" Click="btnShellFaltas_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFF7A8" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnBubbleFaltas" Content="OrdenarBubble" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="458,202,0,0" Click="btnBubbleFaltas_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFA8F7FF" Opacity="0.7"/>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ordenar Por Promedio:" VerticalAlignment="Top" Margin="458,13,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ordenar Por Faltas:" VerticalAlignment="Top" Margin="458,133,0,0"/>
 
     </Grid>
 </Window>
